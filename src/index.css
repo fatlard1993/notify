@@ -1,4 +1,4 @@
-// includes colors dom
+// includes dom
 
 div#notification {
 	@extend .discardable;
@@ -13,19 +13,19 @@ div#notification {
 	font-size: 18px;
 	padding: 10px 20px;
 	border-radius: 2px;
-	color: rgba($black, 0.9);
-	background: $orange;
-	box-shadow: 4px 4px 10px 0px $black, inset 0 0 10px 3px rgba($grey-dark, 0.3);
+	color: rgba(0, 0, 0, 0.9);
+	background: orange;
+	box-shadow: 4px 4px 10px 0px black, inset 0 0 10px 3px rgba(grey, 0.3);
 }
 div#notification.error {
-	background: $red;
+	background: red;
 }
 div#notification.tip {
-	background: $purple;
+	background: purple;
 }
 div#notification.success {
-	background: $green;
+	background: green;
 }
 div#notification.info {
-	background: $blue;
+	background: blue;
 }
