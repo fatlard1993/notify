@@ -5,17 +5,16 @@ div#notification {
 
 	cursor: pointer;
 	position: absolute;
+	white-space: pre-wrap;
+	z-index: 101;
+	color: rgba(0, 0, 0, 0.9);
 	top: 0.5%;
 	left: 15%;
 	max-width: 60%;
-	white-space: pre-wrap;
-	z-index: 101;
 	font-size: 18px;
 	padding: 10px 20px;
-	border-radius: 2px;
-	color: rgba(0, 0, 0, 0.9);
 	background: orange;
-	box-shadow: 4px 4px 10px 0px black, inset 0 0 10px 3px rgba(grey, 0.3);
+	box-shadow: 4px 4px 10px 0px black;
 }
 div#notification.error {
 	background: red;
