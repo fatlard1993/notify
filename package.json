@@ -1,0 +1,28 @@
+{
+  "name": "notify",
+  "version": "1.0.0",
+  "description": "A simple js notification system",
+  "main": "src/index.js",
+  "mainCss": "src/index.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fatlard1993/notify.git"
+  },
+  "author": "fatlard1993",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fatlard1993/notify/issues"
+  },
+  "homepage": "https://github.com/fatlard1993/notify#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.13.0"
+  },
+  "dependencies": {
+    "dom": "github:fatlard1993/dom",
+    "log": "github:fatlard1993/log"
+  }
+}

@@ -1,0 +1,31 @@
+// includes colors dom
+
+div#notification {
+	@extend .discardable;
+
+	cursor: pointer;
+	position: absolute;
+	top: 0.5%;
+	left: 15%;
+	max-width: 60%;
+	white-space: pre-wrap;
+	z-index: 101;
+	font-size: 18px;
+	padding: 10px 20px;
+	border-radius: 2px;
+	color: rgba($black, 0.9);
+	background: $orange;
+	box-shadow: 4px 4px 10px 0px $black, inset 0 0 10px 3px rgba($grey-dark, 0.3);
+}
+div#notification.error {
+	background: $red;
+}
+div#notification.tip {
+	background: $purple;
+}
+div#notification.success {
+	background: $green;
+}
+div#notification.info {
+	background: $blue;
+}
