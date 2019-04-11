@@ -79,7 +79,6 @@ notify.init = function(){
 	dom.interact.on('pointerUp', function(evt){
 		if(evt.target.id === 'notification'){
 			evt.preventDefault();
-			dom.interact.pointerTarget = null;
 
 			if(evt.target.className.includes('progressIndicator')) return;
 
