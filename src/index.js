@@ -75,24 +75,22 @@ notify.clearAll = function(){
 	notify.dismiss();
 };
 
-notify.init = function(){
-	dom.interact.on('pointerUp', function(evt){
-		if(evt.target.id === 'notification'){
-			evt.preventDefault();
+dom.interact.on('pointerUp', function(evt){
+	if(evt.target.id === 'notification'){
+		evt.preventDefault();
 
-			if(evt.target.className.includes('progressIndicator')) return;
+		if(evt.target.className.includes('progressIndicator')) return;
+
+		notify.dismiss();
+	}
+});
+
+dom.interact.on('keyUp', function(evt, keyPressed){
+	if(keyPressed === 'ESCAPE'){
+		if(notify.isOpen){
+			evt.preventDefault();
 
 			notify.dismiss();
 		}
-	});
-
-	dom.interact.on('keyUp', function(evt, keyPressed){
-		if(keyPressed === 'ESCAPE'){
-			if(notify.isOpen){
-				evt.preventDefault();
-
-				notify.dismiss();
-			}
-		}
-	});
-};
+	}
+});
