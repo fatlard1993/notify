@@ -7,24 +7,4 @@ div#notification {
 	position: absolute;
 	white-space: pre-wrap;
 	z-index: 101;
-	color: rgba(0, 0, 0, 0.9);
-	top: 0.5%;
-	left: 15%;
-	max-width: 60%;
-	font-size: 18px;
-	padding: 10px 20px;
-	background: orange;
-	box-shadow: 4px 4px 10px 0px black;
-}
-div#notification.error {
-	background: red;
-}
-div#notification.tip {
-	background: purple;
-}
-div#notification.success {
-	background: green;
-}
-div#notification.info {
-	background: blue;
 }
