@@ -32,7 +32,9 @@ var notify = function(className, message, timeout, force){
 		notify.active.className = 'discard left';
 		notify.active.textContent = message;
 
-		dom.show(notify.active, className, function(){
+		dom.show(notify.active, '', function(){
+			notify.active.className = className;
+
 			if(timeout) setTimeout(notify.dismiss, timeout * 1000);
 		});
 	});
