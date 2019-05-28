@@ -11,10 +11,10 @@ var notify = function(className, message, timeout, force){
 	}
 
 	for(var x = 0; x < notify.que.length; ++x){
-		if(message === notify.que[x][1]) return log.warn('Notification already in que!');
+		if(message === notify.que[x][1]) return log.warn()('[notify] Notification already in que!');
 	}
 
-	if(notify.isOpen && (message === notify.active.textContent)) return log.warn('Notification already being displayed!');
+	if(notify.isOpen && (message === notify.active.textContent)) return log.warn()('[notify] Notification already being displayed!');
 
 	if(notify.isOpen){
 		notify.que.push([className, message, timeout]);
