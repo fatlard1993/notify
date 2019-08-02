@@ -26,7 +26,15 @@ var notify = function(className, message, timeout, force){
 
 	notify.isOpen = true;
 
-	notify.active = notify.active || document.getElementById('notification') || dom.createElem('div', { id: 'notification', prependTo: document.body});
+	notify.active = notify.active || document.getElementById('notification') || dom.createElem('div', { id: 'notification', prependTo: document.body });
+
+	if(!notify.offPointerUp){
+		dom.onPointerUp(notify.active, function(evt){
+			evt.stop();
+
+			notify.dismiss();
+		});
+	}
 
 	dom.animation.add('write', function notification_anim(){
 		notify.active.className = 'discard left';
@@ -43,13 +51,13 @@ var notify = function(className, message, timeout, force){
 notify.que = [];
 
 notify.dismiss = function(){
-	if(notify.isOpen){
-		dom.discard(notify.active, 'left', function(){
-			notify.isOpen = false;
+	if(!notify.isOpen) return;
 
-			if(notify.que.length) notify.apply(null, notify.que.shift());
-		}, 200);
-	}
+	dom.discard(notify.active, 'left', function(){
+		notify.isOpen = false;
+
+		if(notify.que.length) notify.apply(null, notify.que.shift());
+	}, 200);
 };
 
 notify.err = function(message, timeout, force){
@@ -74,25 +82,14 @@ notify.info = function(message, timeout, force){
 
 notify.clearAll = function(){
 	notify.que = [];
+
 	notify.dismiss();
 };
 
-dom.interact.on('pointerUp', function(evt){
-	if(evt.target.id === 'notification'){
+dom.interact.on('keyUp', function(evt){
+	if(evt.keyPressed === 'ESCAPE' && notify.isOpen){
 		evt.preventDefault();
 
-		if(evt.target.className.includes('progressIndicator')) return;
-
-		notify.dismiss();
-	}
-});
-
-dom.interact.on('keyUp', function(evt, keyPressed){
-	if(keyPressed === 'ESCAPE'){
-		if(notify.isOpen){
-			evt.preventDefault();
-
-			notify.dismiss();
-		}
+		notify[evt.ctrlKey ? 'clearAll' : 'dismiss']();
 	}
 });
