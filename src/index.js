@@ -1,6 +1,5 @@
-// includes dom log
-// babel
-/* global dom log */
+import Log from 'log';
+import dom from 'dom';
 
 var notify = function(className, message, timeout, force){
 	if(className instanceof Object){
@@ -11,10 +10,10 @@ var notify = function(className, message, timeout, force){
 	}
 
 	for(var x = 0; x < notify.que.length; ++x){
-		if(message === notify.que[x][1]) return log.warn()('[notify] Notification already in que!');
+		if(message === notify.que[x][1]) return notify.log.warn()('Notification already in que!');
 	}
 
-	if(notify.isOpen && (message === notify.active.textContent)) return log.warn()('[notify] Notification already being displayed!');
+	if(notify.isOpen && (message === notify.active.textContent)) return notify.log.warn()('Notification already being displayed!');
 
 	if(notify.isOpen){
 		notify.que.push([className, message, timeout]);
@@ -47,6 +46,8 @@ var notify = function(className, message, timeout, force){
 		});
 	});
 };
+
+notify.log = new Log({ tag: 'notify' });
 
 notify.que = [];
 
@@ -93,3 +94,5 @@ dom.interact.on('keyUp', function(evt){
 		notify[evt.ctrlKey ? 'clearAll' : 'dismiss']();
 	}
 });
+
+if(typeof module === 'object') module.exports = notify;
