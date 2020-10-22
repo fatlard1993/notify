@@ -1,7 +1,7 @@
 // includes dom
 
 div#notification {
-	@extend .discardable;
+	@mixin discardable;
 
 	cursor: pointer;
 	position: absolute;
