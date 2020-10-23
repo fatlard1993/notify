@@ -1,6 +1,6 @@
 {
 	"name": "notify",
-	"version": "2.2.3",
+	"version": "2.2.4",
 	"description": "A simple js notification system",
 	"main": "src/index.js",
 	"mainCss": "src/index.css",
